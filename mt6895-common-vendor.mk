@@ -128,6 +128,7 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/mt6895-common/proprietary/vendor/etc/init/android.hardware.secure_element@1.2-service-mediatek.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.secure_element@1.2-service-mediatek.rc \
     vendor/xiaomi/mt6895-common/proprietary/vendor/etc/init/android.hardware.security.keymint-service.beanpod.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.security.keymint-service.beanpod.rc \
     vendor/xiaomi/mt6895-common/proprietary/vendor/etc/init/chipinfo_init.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/chipinfo_init.rc \
+    vendor/xiaomi/mt6895-common/proprietary/vendor/etc/init/em_hidl_user.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/em_hidl_user.rc \
     vendor/xiaomi/mt6895-common/proprietary/vendor/etc/init/init.bt_drv.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.bt_drv.rc \
     vendor/xiaomi/mt6895-common/proprietary/vendor/etc/init/init.cccimdinit.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.cccimdinit.rc \
     vendor/xiaomi/mt6895-common/proprietary/vendor/etc/init/init.cccirpcd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.cccirpcd.rc \
@@ -238,6 +239,8 @@ PRODUCT_PACKAGES += \
     libblisrc32_vendor \
     libbluetooth_mtk \
     libbluetooth_mtk_pure \
+    libbluetooth_relayer \
+    libbluetoothem_mtk \
     libbt-vendor \
     libbwc \
     libcares_naptr \
@@ -412,6 +415,10 @@ PRODUCT_PACKAGES += \
     vendor.mediatek.hardware.bluetooth.audio@2.1 \
     vendor.mediatek.hardware.bluetooth.audio@2.2 \
     vendor.mediatek.hardware.composer_ext@1.0 \
+    vendor.mediatek.hardware.engineermode@1.0 \
+    vendor.mediatek.hardware.engineermode@1.1 \
+    vendor.mediatek.hardware.engineermode@1.2 \
+    vendor.mediatek.hardware.engineermode@1.3 \
     vendor.mediatek.hardware.mmagent@1.0 \
     vendor.mediatek.hardware.mmagent@1.1 \
     vendor.mediatek.hardware.mms@1.0 \
@@ -459,8 +466,14 @@ PRODUCT_PACKAGES += \
     libapuwarexrp.mtk \
     libapuwarexrp_v2.mtk \
     libarmnn_ndk.mtk \
+    libaudiotoolkit \
     libcmdl_ndk.mtk \
     libcomutils \
+    libem_aoltest_jni \
+    libem_audio_jni \
+    libem_bleoffload_jni \
+    libem_support_jni \
+    libem_wifi_jni \
     libimsma \
     libimsma_adapt \
     libimsma_rtp \
@@ -513,6 +526,7 @@ PRODUCT_PACKAGES += \
     vendor.mediatek.hardware.videotelephony-V1-ndk \
     vendor.mediatek.hardware.videotelephony@1.0 \
     SoterService \
+    EngineerMode \
     ImsService \
     MtkGbaService \
     mediatek-ims-base \
@@ -539,6 +553,7 @@ PRODUCT_PACKAGES += \
     ccci_rpcd \
     chipinfo \
     conninfra_loader \
+    em_hidl \
     fidoca_isee \
     android.hardware.drm@1.4-service.widevine \
     android.hardware.gnss-service.mediatek \
