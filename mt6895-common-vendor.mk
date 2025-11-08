@@ -379,7 +379,6 @@ PRODUCT_PACKAGES += \
     libvow_ap_test_ha \
     libvow_ap_test_hh \
     libvow_ap_test_nn \
-    libwifi-hal-mtk \
     libwpfa \
     libwvhidl \
     libwvkeybox \
