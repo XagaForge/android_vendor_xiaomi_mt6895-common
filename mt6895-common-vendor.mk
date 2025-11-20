@@ -216,7 +216,6 @@ PRODUCT_PACKAGES += \
     libaal_cust \
     libaal_key \
     libaal_mtk \
-    libaedv \
     libalsautils-v31 \
     libapu_mdw \
     libapu_mdw_batch \
