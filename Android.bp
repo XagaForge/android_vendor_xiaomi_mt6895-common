@@ -900,7 +900,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.mediatek.hardware.videotelephony@1.0-impl",
+    name: "vendor.mediatek.hardware.videotelephony-impl",
     owner: "xiaomi",
     strip: {
         none: true,
@@ -908,12 +908,12 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/hw/vendor.mediatek.hardware.videotelephony@1.0-impl.so",
+                "proprietary/vendor/lib64/hw/vendor.mediatek.hardware.videotelephony-impl.so",
             ],
             shared_libs: [
-                "libhidlbase",
+                "libbinder_ndk",
                 "libfmq",
-                "vendor.mediatek.hardware.videotelephony@1.0_vendor",
+                "vendor.mediatek.hardware.videotelephony-V1-ndk_vendor",
                 "libc",
                 "libutils",
                 "libcutils",
@@ -6692,6 +6692,31 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "vendor.mediatek.hardware.clientapi-V1-ndk",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.mediatek.hardware.clientapi-V1-ndk.so",
+            ],
+            shared_libs: [
+                "libbinder_ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "vendor.mediatek.hardware.composer_ext@1.0",
     owner: "xiaomi",
     strip: {
@@ -7980,8 +8005,8 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.mediatek.hardware.videotelephony@1.0_vendor",
-    stem: "vendor.mediatek.hardware.videotelephony@1.0",
+    name: "vendor.mediatek.hardware.videotelephony-V1-ndk_vendor",
+    stem: "vendor.mediatek.hardware.videotelephony-V1-ndk",
     owner: "xiaomi",
     strip: {
         none: true,
@@ -7989,13 +8014,12 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/vendor.mediatek.hardware.videotelephony@1.0.so",
+                "proprietary/vendor/lib64/vendor.mediatek.hardware.videotelephony-V1-ndk.so",
             ],
             shared_libs: [
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libcutils",
+                "libbinder_ndk",
+                "android.hardware.common-V2-ndk",
+                "android.hardware.common.fmq-V1-ndk",
                 "libc++",
                 "libc",
                 "libm",
@@ -10160,14 +10184,6 @@ dex_import {
 }
 
 dex_import {
-    name: "mediatek-ims-extension-plugin",
-    owner: "xiaomi",
-    jars: [
-        "proprietary/system/framework/mediatek-ims-extension-plugin.jar",
-    ],
-}
-
-dex_import {
     name: "mediatek-telecom-common",
     owner: "xiaomi",
     jars: [
@@ -10189,6 +10205,15 @@ dex_import {
     jars: [
         "proprietary/system/framework/mediatek-telephony-common.jar",
     ],
+}
+
+dex_import {
+    name: "mediatek-ims-extension-plugin",
+    owner: "xiaomi",
+    jars: [
+        "proprietary/system_ext/framework/mediatek-ims-extension-plugin.jar",
+    ],
+    system_ext_specific: true,
 }
 
 prebuilt_etc_xml {
@@ -11036,12 +11061,12 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_binary {
-    name: "vtservice_hidl",
+    name: "vtservice_aidl",
     owner: "xiaomi",
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/vendor/bin/hw/vtservice_hidl",
+                "proprietary/vendor/bin/hw/vtservice_aidl",
             ],
             shared_libs: [
                 "libutils",
@@ -11049,11 +11074,9 @@ cc_prebuilt_binary {
                 "liblog",
                 "libbase",
                 "libfmq",
-                "vendor.mediatek.hardware.videotelephony@1.0_vendor",
-                "libhardware",
-                "libhwbinder",
-                "libhidlbase",
-                "libhidltransport",
+                "vendor.mediatek.hardware.videotelephony-V1-ndk_vendor",
+                "vendor.mediatek.hardware.videotelephony-impl",
+                "libbinder_ndk",
                 "libc++",
                 "libc",
                 "libm",
@@ -11256,6 +11279,40 @@ cc_prebuilt_binary {
                 "libcutils",
                 "liblog",
                 "libteei_daemon_vfs",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_binary {
+    name: "volte_clientapi_ua",
+    owner: "xiaomi",
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/bin/volte_clientapi_ua",
+            ],
+            shared_libs: [
+                "libbase",
+                "libcutils",
+                "libfmq",
+                "liblog",
+                "libutils",
+                "libhwbinder",
+                "libhardware",
+                "libbinder_ndk",
+                "vendor.mediatek.hardware.clientapi-V1-ndk",
+                "libhardware_legacy",
                 "libc++",
                 "libc",
                 "libm",
